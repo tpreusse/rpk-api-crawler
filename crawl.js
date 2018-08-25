@@ -25,7 +25,7 @@ const crawl = async (pathname, query = {}) => {
     path.join(
       __dirname,
       'data',
-      `${pathname}${Object.keys(query).reduce((string, key) => {
+      `${pathname.replace(/\//g, '-')}${Object.keys(query).reduce((string, key) => {
         return `${string}-${key}${query[key]}`
       }, '')}.json`
     ),
